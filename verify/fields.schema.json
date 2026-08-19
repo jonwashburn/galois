@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IGP24 published degree-24 field row",
+  "type": "object",
+  "required": [
+    "label",
+    "signature",
+    "coeffs",
+    "irreducible",
+    "label_axis",
+    "disc_axis",
+    "maximal_axis"
+  ],
+  "properties": {
+    "label": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 25000,
+      "description": "Transitive group number n in 24Tn."
+    },
+    "signature": {
+      "type": "integer",
+      "enum": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
+      "description": "Real-root count by polsturm, never by prediction."
+    },
+    "coeffs": {
+      "type": "string",
+      "description": "Integer coefficients, constant term first, comma-separated."
+    },
+    "irreducible": {
+      "type": "boolean",
+      "const": true
+    },
+    "label_axis": {
+      "type": "string",
+      "enum": ["exact", "chebotarev"]
+    },
+    "label_primes": { "type": ["integer", "null"] },
+    "label_margin": { "type": ["number", "null"] },
+    "label_pmax": { "type": ["integer", "null"] },
+    "disc_axis": {
+      "type": "string",
+      "enum": ["unconditional", "conditional", "undetermined"],
+      "description": "unconditional when the polynomial discriminant factored completely below disc_pbound; conditional when a cofactor survived and is recorded; undetermined when the factorization did not finish, which is a statement about this computation and not about the field."
+    },
+    "nfdisc": { "type": ["string", "null"] },
+    "disc_pbound": { "type": ["integer", "null"] },
+    "disc_cofactor": { "type": ["string", "null"] },
+    "disc_note": {
+      "type": ["string", "null"],
+      "description": "Why an undetermined row is undetermined."
+    },
+    "maximal_axis": {
+      "type": "string",
+      "enum": ["certified", "bounded", "unknown"]
+    },
+    "reduced": {
+      "type": "string",
+      "enum": ["polredabs", "polredbest", "raw"]
+    },
+    "method_family": { "type": ["string", "null"] },
+    "sha256": { "type": "string" }
+  }
+}

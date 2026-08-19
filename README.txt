@@ -64,11 +64,17 @@ worklist/
   as <group>_<count> per line. Every named cell is on the admitted
   list, so the leftover is exactly the difference.
 
-Three tools
------------
+Four tools
+----------
+
+They are numbered on the page the same way they are ordered here:
+screen a pair before you spend a core, write the polynomials, name
+what came out, recheck anything we published.
+
+  https://recognitionphysics.org/igp24/tools/
 
 reach/
-  Both directions of the same table.
+  1. Screen. Both directions of the same table.
 
   What a base can write. You give a base field's degree and how many
   real places it has; the screen returns which real-root counts that
@@ -92,20 +98,48 @@ reach/
     reach/walktable.json.gz
     SHA-256 ad86d39070edd3ba75d2e5326f73a2b6613ee35aecc7de1300913a962f488fab
 
+aim/
+  2. Write the polynomials. One worked compile: a totally real 12T11
+  base, signature 24, nine degree-24 polynomials. It stops at
+  polynomials and does not name the group. Need: PARI/GP 2.13 or
+  later.
+
+    gp -q aim/worked-12t11.gp
+
+  What is aimed is a square class and a signature; the group is read
+  off the polynomial afterwards. Aiming a chosen 24Tn is not a move
+  this machine has. The full contract, the input object, and the
+  by-hand PARI recipe are at
+
+    https://recognitionphysics.org/igp24/compiler/
+
 label/
-  A degree-24 polynomial in. A group name and a real-root count out,
-  with a margin. Chebotarev evidence, not a proof. Accept at 5 nats
-  or more. Need: Python 3 and PARI/GP 2.13 or later.
+  3. Name what came out. A degree-24 polynomial in, a group name and
+  a real-root count out, with a margin. Chebotarev evidence, not a
+  proof. Accept at 5 nats or more and refuse below that rather than
+  guess. Need: Python 3 and PARI/GP 2.13 or later.
 
     gunzip -k label/shape_laws_24T.jsonl.gz
     export IGP24_SHAPE_LAWS=$PWD/label/shape_laws_24T.jsonl
     python3 label/label_degree24.py polys.txt --primes 1000 --min-margin 5
 
-aim/
-  One worked compile: a totally real 12T11 base, signature 24, nine
-  degree-24 polynomials. Need: PARI/GP 2.13 or later.
+verify/
+  4. Recheck anything we published. Every claim in a published row is
+  recomputed from the coefficients alone. Run the red test first: a
+  checker that has never rejected anything has not been shown to
+  reject anything. Need: Python 3 and PARI/GP.
 
-    gp -q aim/worked-12t11.gp
+    python3 verify/verify_rows.py --fields fields.jsonl --sample 400 --mutate
+    python3 verify/verify_rows.py --fields fields.jsonl --sample 400
+
+  The first corrupts one asserted field per row and every row must be
+  rejected. Measured on the published table: 400 of 400 real rows
+  reproduce, 400 of 400 corrupted rows are rejected. It cannot name
+  the Galois group, because polgalois stops at degree 11; that is
+  what label/ is for, and the checker says so rather than passing
+  over it. The table itself is at
+
+    https://recognitionphysics.org/igp24/data/
 
 The pages
 ---------
@@ -115,6 +149,7 @@ The pages
   Open cells     https://recognitionphysics.org/igp24/worklist/
   Tools          https://recognitionphysics.org/igp24/tools/
   Dead ends      https://recognitionphysics.org/igp24/dead-ends/
+  Data           https://recognitionphysics.org/igp24/data/
   Help           https://recognitionphysics.org/igp24/help/
 
 Recognition Physics Institute, Austin.
