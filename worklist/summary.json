@@ -1,0 +1,38 @@
+{
+  "what": "Every open degree-24 cell, with the shape of field that would write it. A listed base is permitted by group theory; the arithmetic is not settled here.",
+  "admissible_pairs": 165836,
+  "named_cells": 141626,
+  "named_not_admissible": 0,
+  "open_cells": 24210,
+  "jobs": {
+    "quadratic": 11736,
+    "other-tower": 12470,
+    "construction": 0,
+    "no-opinion": 4
+  },
+  "labels_with_an_open_cell": 7433,
+  "labels_per_job": {
+    "no-opinion": 3,
+    "other-tower": 3155,
+    "quadratic": 4275
+  },
+  "quadratic_bases_per_cell": {
+    "min": 1,
+    "max": 9,
+    "median": 1
+  },
+  "other_tower_cells_per_base_degree": {
+    "2": 9822,
+    "3": 2746,
+    "4": 7469,
+    "6": 4331,
+    "8": 7325
+  },
+  "job_meanings": {
+    "quadratic": "A degree-12 base of a stated signature and group puts this cell in reach of one square root. Pile one: a computer.",
+    "other-tower": "No degree-12 base reaches this real-root count, but a base of another degree does. Pile one in spirit, a different tower in practice.",
+    "construction": "No block system of any shape delivers this real-root count. Pile two: a different construction, not a wider walk.",
+    "no-opinion": "Primitive or not censused. The screen fails open, so this is ignorance and not a refusal."
+  },
+  "fails_open": true
+}

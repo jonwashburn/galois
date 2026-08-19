@@ -1,17 +1,43 @@
 Reach screen for degree 24
 
-You give a base field's degree and how many real places it has.
-The tool returns which real-root counts upstairs that base can
-possibly write, and, if you name a group, whether that pair is
-allowed.
+Both directions of one table.
 
 A refusal is a proof of no, from group theory. An allow means
 the group permits it; the arithmetic still has to work out.
 
 Need: Python 3. No PARI, no GAP, no network.
 
+WHAT A BASE CAN WRITE
+
+You give a base field's degree and how many real places it has.
+The tool returns which real-root counts upstairs that base can
+possibly write, and, if you name a group, whether that pair is
+allowed.
+
   python3 reach.py --deg 12 --r1 12
   python3 reach.py --deg 12 --r1 12 --label 10301 --r 24
+
+WHAT A TARGET CELL NEEDS
+
+The inverse, and the direction most people want, because you
+usually have a cell nobody has written rather than a base.
+
+  python3 reach.py --label 243 --r 0
+
+  24T243 at r=0 needs one of these bases:
+  base degree   base group    real places    complex   step on top
+  2             2T1           2 of 2         0         degree 12
+  4             4T1           4 of 4         0         degree 6
+  6             6T10          6 of 6         0         degree 4
+  8             8T7           0 of 8         4         degree 3
+  12            12T41         12 of 12       0         degree 2
+
+  A degree-12 base finishes this with one square root.
+  r = 24 - 4s - 2w, so the radicand must be negative at 12 of
+  the base's real places.
+
+This is already run against every open cell, in one file, at
+../worklist/.
 
 The walk table ships beside this file:
 

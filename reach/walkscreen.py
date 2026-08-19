@@ -184,6 +184,32 @@ def screen(t: int, base_deg: int, base_r1: int, r: int,
             and allows(t, base_deg, base_r1, r, base_type))
 
 
+def bases_for_cell(t: int, r: int):
+    """Every base that could put label t at real count r.
+
+    The inverse of `reachable`, and the direction someone with a target
+    actually asks in. They have a cell nobody has written and want to know
+    what field to stand it on; `reachable` answers the opposite question,
+    which only helps a mill that already owns a base.
+
+    Returns a sorted list of (base degree, base group, base real places), or
+    None when the table has no opinion on this label. An empty list is a
+    refusal: the label is censused and no block system of any shape delivers
+    this real count.
+    """
+    load()
+    if not _typed or t not in _labels():
+        return None
+    bit = 1 << (r // 2)
+    if r % 2 or r < 0 or r > 24:
+        return []
+    return sorted(
+        (b, base_t, rho)
+        for (label, b, base_t, rho), m in _typed.items()
+        if label == t and m & bit
+    )
+
+
 def cells_for_base(base_deg: int, base_r1: int, base_type: int | None = None):
     """Iterate the (label, real count) cells this base could write."""
     load()
