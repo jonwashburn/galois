@@ -1,0 +1,14 @@
+{
+  "file": "shape_laws_24T.jsonl.gz",
+  "bytes": 2849148,
+  "sha256": "ff40f2d32e81315879f52db6100c2111884b55d5b009a5a048b7eb9649f41510",
+  "reproducible": "Written with mtime zero and no embedded filename, so this hash is reproduced by anyone who compresses the same table rather than only by us.",
+  "uncompressed": {
+    "file": "shape_laws_24T.jsonl",
+    "bytes": 41460118,
+    "sha256": "b201ae4963ada8eb3496c6f1a866348d0f9180018ae29ef9fbdc77aca614086b"
+  },
+  "groups": 25000,
+  "built_by": "IGP24/scripts/shape_law_shard.g",
+  "note": "Class-rate law for every transitive group of degree 24. label_degree24.py needs it: point IGP24_SHAPE_LAWS at the decompressed file."
+}

@@ -1,0 +1,137 @@
+{
+  "base_coeffs": [
+    -4337,
+    -14388,
+    3142,
+    34144,
+    14133,
+    -13068,
+    -7174,
+    1452,
+    1044,
+    -44,
+    -56,
+    0,
+    1
+  ],
+  "s_primes": [
+    17,
+    41,
+    4001
+  ],
+  "cubic_coeffs": [
+    4337,
+    2685,
+    -160,
+    1
+  ],
+  "target_label": 10301,
+  "target_parent": 11,
+  "note": "12T11 base of the 768-field cubic-class split. On that draw of 768, class 010000100 wrote 24T10301 542 times and class 000000000 wrote 24T10303 226 times, with no field in either class carrying the other group. Read those as facts about that draw, not as a rule mapping class to label: a later draw of 200 inside class 010000100 returned three groups. The class narrows the label; it does not fix it. See label_distribution_at_aimed_cell below, which is the measurement that corrected this.",
+  "base_signature": [
+    12,
+    0
+  ],
+  "base_class_number": 1,
+  "s_unit_generators": 34,
+  "s_primes_above": 22,
+  "class_bits": 9,
+  "sign_places": 12,
+  "sign_block_rank": 12,
+  "class_block_rank": 8,
+  "joint_rank": 17,
+  "joint_rows": 21,
+  "kernel_dim": 17,
+  "aimed_class": "010000100",
+  "aimed_class_representative": "(-25*y^2 + 3653*y + 10031)/8371 in Q[y]/(y^3 - 160*y^2 + 2685*y + 4337)",
+  "aimed_class_note": "The bit string is basis-dependent: it is written in whichever generating set bnfunits returned, and a prime generator is pinned only up to units and sign, so another build can shear the basis and make the same string name a different class. The representative element is basis-independent. Derive your own coordinates with lift(bnfisunit(F, w, UF)) mod 2, which reads 010000100 on PARI 2.13.3.",
+  "aimed_signature": 24,
+  "pari_version_floor": "2.13",
+  "pari_version_measured": "2.13.3",
+  "base_prepare_ms": {
+    "nfinit": 5,
+    "bnfinit": 38,
+    "bnfinit_range": [
+      38,
+      43
+    ],
+    "primedec": 1,
+    "bnfunits": 12,
+    "total": 55,
+    "runs": 3,
+    "note": "measured on PARI 2.13.3; bnfunits is over the 22 primes above 17, 41 and 4001"
+  },
+  "shipped_generators_verified": {
+    "how": "each of the 34 shipped generators expressed in a freshly computed bnfunits basis; the 34 by 34 change of basis has determinant 1, so the two sets generate the same S-unit group",
+    "determinant": 1
+  },
+  "grh": "class and unit data from bnfinit is conditional on the generalized Riemann hypothesis; bnfcertify was not run",
+  "s_choice": {
+    "rule": "S must contain every prime dividing the norm of any u you want bnfisunit to recognize. Beyond that it is a dial: widen for volume, narrow for a smaller solve.",
+    "measured": "Eight S sets swept on this base, with the class named by the representative element rather than by a bit string. The class is reachable at seven of the eight. The failure is {41, 4001}, where dropping 17 makes the element not an S-unit at all, so there is no right-hand side to solve rather than a system with no solution.",
+    "same_class_different_coordinates": {
+      "[17,41]": "0100100",
+      "[17,4001]": "0100100",
+      "[17,41,4001]": "010000100",
+      "[2,17,41,4001]": "0010000100",
+      "[7,17,41,4001]": "00010000100",
+      "[2,3,17,41,4001]": "000010000100",
+      "[2,3,5,7,17,41,4001]": "0000000010000100",
+      "[41,4001]": null
+    },
+    "means": "a bit string is not portable across S even on one base; the element is"
+  },
+  "labelling": "The file emits polynomials and carries no labelling code. Its nine fields were labelled separately by Frobenius cycle shapes at 1,000 admitted primes scored against per-group shape distributions: eight 24T10301 and one 24T5392, thinnest margin 229.9 nats, widest 276.2. The method is specified in full on the compiler page: primes walked in increasing order from 3, admitted when the factorization is squarefree with degrees totalling 24, scored by log likelihood against per-group cycle-type frequencies, accepted at a 5 nat margin.",
+  "kernel_walk_degeneracy": {
+    "checked": 201,
+    "square_in_base": 0,
+    "proper_subfield": 0,
+    "means": "on this coset every member generates the base, so charpoly(u, x^2) is the minimal polynomial of the square root throughout; that is a property of this coset and not of the method, and u = -1 is a witness that a proper-subfield member gives a good degree-24 field the charpoly route cannot write"
+  },
+  "label_distribution_at_aimed_cell": {
+    "sample": 200,
+    "24T10301": 176,
+    "24T5392": 21,
+    "24T1704": 3,
+    "read_at_primes": 1000,
+    "means": "a class narrows the label, it does not fix it; the remaining spread is the 17-dimensional kernel of the solve"
+  },
+  "label_cost_ms": {
+    "table_load": 330,
+    "per_field": 108,
+    "nine_fields_total": 1302,
+    "how": "nine fields took 1.302 s and one took 0.439 s on the same host, so the difference over eight fields gives the per-field cost and the remainder is the one-time cycle-type table load",
+    "primes": 1000
+  },
+  "orbit_embedding": {
+    "count_on_this_base": 1,
+    "how": "nfisincl of the cubic into the base",
+    "numerators_polrev": [
+      27043677307972,
+      97447781089076,
+      -40953355656028,
+      -273257184269168,
+      705231691117,
+      125194392871944,
+      7641596303894,
+      -18381647173824,
+      -1148991623988,
+      1036281514444,
+      38513825866,
+      -19875914124
+    ],
+    "denominator": 1010521154671,
+    "verified": "substituting this element into the cubic reduces to zero modulo the base polynomial",
+    "means": "the class coordinates are unambiguous here; on a base with more than one embedding the embedding must be named, because each is a different relative-norm map and therefore a different class coordinate system"
+  },
+  "cost_ms": {
+    "base_prepare": 55,
+    "build_one_field": 16,
+    "build_breakdown": "polredbest is essentially all of it; charpoly plus the x^2 substitution is under a millisecond",
+    "label_table_load": 330,
+    "label_per_field": 108,
+    "whole_file_wall": 860,
+    "runs": 3,
+    "means": "an aim is dominated by per-field work, about 130 ms of it; the base is a rounding error"
+  }
+}
